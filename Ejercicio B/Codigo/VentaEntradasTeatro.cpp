@@ -14,6 +14,7 @@ int main(int argc, char** argv) {
     char continuar;
     
     do{
+    	numeroFactura++;
     	// ingresar datos del cliente
         printf("Ingrese cedula: ");
         scanf("%d", &cedula);
