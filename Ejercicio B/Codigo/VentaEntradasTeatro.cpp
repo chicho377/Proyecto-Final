@@ -69,10 +69,33 @@ int main(int argc, char** argv) {
         printf("Subtotal de venta: %.2f\n", subTotal);
         printf("Impuesto de venta: %.2f\n", impuesto);
         printf("Total a pagar: %.2f\n", totalPagar);
+        
+        // actualizar estadisticas
+        if (tipoTiquete == 1) {
+            cantGaleria += cantidadTiquetes;
+            acumGaleria += totalPagar;
+        } else if (tipoTiquete == 2) {
+            cantPalco += cantidadTiquetes;
+            acumPalco += totalPagar;
+        }
+        cantTotal += cantidadTiquetes;
+        acumTotal += totalPagar;
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
 	}while(continuar == 's' || continuar == 'S');
+	
+	// mostrar estadisticas finales
+    printf("\nEstadisticas finales:\n");
+    printf("Cantidad de entradas Tiquetes Galeria: %d\n", cantGaleria);
+    printf("Acumulado Dinero por Tiquetes Galeria: %.2f\n", acumGaleria);
+    printf("Cantidad de entradas Tiquetes Palco: %d\n", cantPalco);
+    printf("Acumulado Dinero por Tiquetes Palco: %.2f\n", acumPalco);
+    printf("Cantidad General de Entradas: %d\n", cantTotal);
+    printf("Acumulado General Dinero por Entradas: %.2f\n", acumTotal);
+    if (numeroFactura > 0) {
+        printf("Promedio General por Ventas: %.2f\n", acumTotal / numeroFactura);
+    }
 	
 	return 0;
 }
