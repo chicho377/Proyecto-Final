@@ -26,12 +26,26 @@ int main(int argc, char** argv) {
 
         printf("Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): ");
         scanf("%d", &tipoCliente);
+        
+        // validar que el tipo de cliente sea correcto
+        while(tipoCliente > 2 || tipoCliente < 1){
+        	printf("Tipo de cliente incorrecto. Por favor ingrese 1-Nino o adulto mayor, 2-Adulto: ");
+        	scanf("%d", &tipoCliente);
+		}
+        
         printf("Ingrese tipo de tiquete (1=Tiquete Galeria, 2=Tiquete Palco): ");
         scanf("%d", &tipoTiquete);
+        
+        // validar que el tipo de tiquete sea correcto
+        while(tipoTiquete > 2 || tipoTiquete < 1){
+        	printf("Tipo de tiquete incorrecto. Por favor ingrese 1-Galeria, 2-Palco: ");
+        	scanf("%d", &tipoTiquete);
+		}
+        
         printf("Ingrese cantidad de tiquetes: ");
         scanf("%d", &cantidadTiquetes);
-        
-        // calcular monto unitario
+		
+		// calcular monto unitario
         if (tipoTiquete == 1) {
             montoUnitario = 6000;
         } else if (tipoTiquete == 2) {
@@ -58,7 +72,7 @@ int main(int argc, char** argv) {
         totalPagar = subTotal + impuesto;
         
         // imprimir factura
-         printf("\n=============================\n");
+        printf("\n=============================\n");
         printf("         FACTURA #%d\n", numeroFactura);
         printf("=============================\n");
         printf("Cedula: %d\n", cedula);
