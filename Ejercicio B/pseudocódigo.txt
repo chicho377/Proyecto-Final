@@ -1,0 +1,131 @@
+INICIO
+
+    // Inicializar variables
+    numeroFactura ← 0
+    cantGaleria ← 0
+    cantPalco ← 0
+    cantTotal ← 0
+    cedula ← 0
+    tipoCliente ← 0
+    tipoTiquete ← 0
+    cantidadTiquetes ← 0
+    montoUnitario ← 0.0
+    montoVenta ← 0.0
+    descuento ← 0.0
+    subTotal ← 0.0
+    impuesto ← 0.0
+    totalPagar ← 0.0
+    acumGaleria ← 0.0
+    acumPalco ← 0.0
+    acumTotal ← 0.0
+    nombre ← ""
+    continuar ← ''
+
+    MIENTRAS continuar = 's' O continuar = 'S' HACER
+        // Incrementar el número de factura
+        numeroFactura ← numeroFactura + 1
+
+        // Ingresar datos del cliente
+        IMPRIMIR "Ingrese cedula: "
+        LEER cedula
+        IMPRIMIR "Ingrese nombre y apellido: "
+        LEER nombre
+
+        // Eliminar el salto de línea al final de la entrada
+        nombre ← eliminar_salto_de_linea(nombre)
+
+        IMPRIMIR "Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): "
+        LEER tipoCliente
+
+        // Validar que el tipo de cliente sea correcto
+        MIENTRAS tipoCliente > 2 O tipoCliente < 1 HACER
+            IMPRIMIR "Tipo de cliente incorrecto. Por favor ingrese 1-Nino o adulto mayor, 2-Adulto: "
+            LEER tipoCliente
+        FIN MIENTRAS
+
+        IMPRIMIR "Ingrese tipo de tiquete (1=Tiquete Galeria, 2=Tiquete Palco): "
+        LEER tipoTiquete
+
+        // Validar que el tipo de tiquete sea correcto
+        MIENTRAS tipoTiquete > 2 O tipoTiquete < 1 HACER
+            IMPRIMIR "Tipo de tiquete incorrecto. Por favor ingrese 1-Galeria, 2-Palco: "
+            LEER tipoTiquete
+        FIN MIENTRAS
+
+        IMPRIMIR "Ingrese cantidad de tiquetes: "
+        LEER cantidadTiquetes
+
+        // Calcular monto unitario
+        SI tipoTiquete = 1 ENTONCES
+            montoUnitario ← 6000
+        SINO SI tipoTiquete = 2 ENTONCES
+            montoUnitario ← 12000
+        FIN SI
+
+        // Calcular monto de venta
+        montoVenta ← cantidadTiquetes * montoUnitario
+
+        // Calcular descuento
+        SI tipoCliente = 1 ENTONCES
+            descuento ← montoVenta * 0.30
+        SINO
+            descuento ← 0
+        FIN SI
+
+        // Calcular subtotal
+        subTotal ← montoVenta - descuento
+
+        // Calcular impuesto
+        impuesto ← subTotal * 0.13
+
+        // Calcular total a pagar
+        totalPagar ← subTotal + impuesto
+
+        // Imprimir factura
+        IMPRIMIR "============================="
+        IMPRIMIR "         FACTURA #" + numeroFactura
+        IMPRIMIR "============================="
+        IMPRIMIR "Cedula: " + cedula
+        IMPRIMIR "Nombre: " + nombre
+        IMPRIMIR "Tipo de cliente: " + tipoCliente
+        IMPRIMIR "Tipo de tiquete: " + tipoTiquete
+        IMPRIMIR "Cantidad de tiquetes: " + cantidadTiquetes
+        IMPRIMIR "Monto unitario por tiquete: " + montoUnitario
+        IMPRIMIR "Monto de venta: " + montoVenta
+        IMPRIMIR "Descuento: " + descuento
+        IMPRIMIR "Subtotal de venta: " + subTotal
+        IMPRIMIR "Impuesto de venta: " + impuesto
+        IMPRIMIR "Total a pagar: " + totalPagar
+        IMPRIMIR "============================="
+
+        // Actualizar estadísticas
+        SI tipoTiquete = 1 ENTONCES
+            cantGaleria ← cantGaleria + cantidadTiquetes
+            acumGaleria ← acumGaleria + totalPagar
+        SINO SI tipoTiquete = 2 ENTONCES
+            cantPalco ← cantPalco + cantidadTiquetes
+            acumPalco ← acumPalco + totalPagar
+        FIN SI
+        cantTotal ← cantTotal + cantidadTiquetes
+        acumTotal ← acumTotal + totalPagar
+
+        IMPRIMIR "Desea registrar otra venta? (s/n): "
+        LEER continuar
+
+    FIN MIENTRAS
+
+    // Mostrar estadísticas finales
+    IMPRIMIR "Estadisticas finales:"
+    IMPRIMIR "============================="
+    IMPRIMIR "Cantidad de entradas Tiquetes Galeria: " + cantGaleria
+    IMPRIMIR "Acumulado Dinero por Tiquetes Galeria: " + acumGaleria
+    IMPRIMIR "Cantidad de entradas Tiquetes Palco: " + cantPalco
+    IMPRIMIR "Acumulado Dinero por Tiquetes Palco: " + acumPalco
+    IMPRIMIR "Cantidad General de Entradas: " + cantTotal
+    IMPRIMIR "Acumulado General Dinero por Entradas: " + acumTotal
+    SI numeroFactura > 0 ENTONCES
+        IMPRIMIR "Promedio General por Ventas: " + (acumTotal / numeroFactura)
+    FIN SI
+    IMPRIMIR "============================="
+
+FIN

@@ -7,8 +7,8 @@ int main(int argc, char** argv) {
 	// variables
 	int numeroFactura = 0;
     int cantGaleria = 0, cantPalco = 0, cantTotal = 0;
-    int cedula, tipoCliente, tipoTiquete, cantidadTiquetes;
-    double montoUnitario, montoVenta, descuento, subTotal, impuesto, totalPagar;
+    int cedula = 0, tipoCliente = 0, tipoTiquete = 0, cantidadTiquetes = 0;
+    double montoUnitario = 0.0, montoVenta = 0.0, descuento = 0.0, subTotal = 0.0, impuesto = 0.0, totalPagar = 0.0;
     double acumGaleria = 0.0, acumPalco = 0.0, acumTotal = 0.0;
     char nombre[100];
     char continuar;
