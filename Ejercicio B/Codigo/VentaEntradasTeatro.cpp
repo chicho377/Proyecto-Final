@@ -46,6 +46,15 @@ int main(int argc, char** argv) {
         } else {
             descuento = 0;
         }
+        
+        // calcular subtotal
+        subtotal = montoVenta - descuento;
+
+        // calcular impuesto
+        impuesto = subtotal * 0.13;
+
+        // calcular total a pagar
+        totalPagar = subtotal + impuesto;
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
