@@ -18,6 +18,17 @@ int main(int argc, char** argv) {
 			scanf("%d", &numero);
 		}
 		
+		// inicializar variables
+		numeroOriginal = numero;
+		inverso = 0;
+		
+		//calcular el inverso del numero
+		while(numero > 0){
+			digito = numero % 10;  // extraer el ultimo digito
+			inverso = inverso * 10 + digito;  // agregar el digito al inverso
+			numero /= 10;          // eliminar el ultimo digito del numero
+		}
+		
 		//preguntar si desea continuar
 		printf("Desea ingresar otro numero? (s/n): ");
 		scanf("%c", &continuar);
