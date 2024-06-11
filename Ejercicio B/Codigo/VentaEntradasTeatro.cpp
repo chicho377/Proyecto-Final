@@ -58,7 +58,9 @@ int main(int argc, char** argv) {
         totalPagar = subTotal + impuesto;
         
         // imprimir factura
-        printf("\nFactura #%d\n", numeroFactura);
+         printf("\n=============================\n");
+        printf("         FACTURA #%d\n", numeroFactura);
+        printf("=============================\n");
         printf("Cedula: %d\n", cedula);
         printf("Nombre: %s\n", nombre);
         printf("Tipo de cliente: %d\n", tipoCliente);
@@ -70,6 +72,7 @@ int main(int argc, char** argv) {
         printf("Subtotal de venta: %.2f\n", subTotal);
         printf("Impuesto de venta: %.2f\n", impuesto);
         printf("Total a pagar: %.2f\n", totalPagar);
+        printf("=============================\n");
         
         // actualizar estadisticas
         if (tipoTiquete == 1) {
@@ -88,6 +91,7 @@ int main(int argc, char** argv) {
 	
 	// mostrar estadisticas finales
     printf("\nEstadisticas finales:\n");
+    printf("=============================\n");
     printf("Cantidad de entradas Tiquetes Galeria: %d\n", cantGaleria);
     printf("Acumulado Dinero por Tiquetes Galeria: %.2f\n", acumGaleria);
     printf("Cantidad de entradas Tiquetes Palco: %d\n", cantPalco);
@@ -97,6 +101,7 @@ int main(int argc, char** argv) {
     if (numeroFactura > 0) {
         printf("Promedio General por Ventas: %.2f\n", acumTotal / numeroFactura);
     }
+    printf("=============================\n");
 	
 	return 0;
 }
