@@ -36,6 +36,16 @@ int main(int argc, char** argv) {
         } else if (tipoTiquete == 2) {
             montoUnitario = 12000;
         }
+        
+        // calcular monto de venta
+        montoVenta = cantidadTiquetes * montoUnitario;
+        
+        // calcular descuento
+        if (tipoCliente == 1) {
+            descuento = montoVenta * 0.30;
+        } else {
+            descuento = 0;
+        }
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
