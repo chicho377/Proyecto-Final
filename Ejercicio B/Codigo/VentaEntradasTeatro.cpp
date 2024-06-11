@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     int cedula, tipoCliente, tipoTiquete, cantidadTiquetes;
     double montoUnitario, montoVenta, descuento, subTotal, impuesto, totalPagar;
     double acumGaleria = 0.0, acumPalco = 0.0, acumTotal = 0.0;
-    char nombre[100];\
+    char nombre[100];
     char continuar;
     
     do{
@@ -32,9 +32,9 @@ int main(int argc, char** argv) {
         
         // calcular monto unitario
         if (tipoTiquete == 1) {
-            montoUnitario = 6000;\
+            montoUnitario = 6000;
         } else if (tipoTiquete == 2) {
-            montoUnitario = 12000;\
+            montoUnitario = 12000;
         }
         
         // calcular monto de venta
