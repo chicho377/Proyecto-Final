@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 		
 		//preguntar si desea continuar
 		printf("Desea ingresar otro numero? (s/n): ");
-		scanf("%c", &continuar);
+		scanf(" %c", &continuar);
 	}while(continuar == 's' || continuar == 'S');
 	
 	return 0;
