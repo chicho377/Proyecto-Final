@@ -14,7 +14,21 @@ int main(int argc, char** argv) {
     char continuar;
     
     do{
-    	
+    	// ingresar datos del cliente
+        printf("Ingrese cedula: ");
+        scanf("%d", &cedula);
+        printf("Ingrese nombre y apellido: ");
+        getchar();  // para consumir el salto de línea pendiente
+        fgets(nombre, sizeof(nombre), stdin);
+        // Eliminar el salto de línea al final de la entrada
+        nombre[strcspn(nombre, "\n")] = 0;
+
+        printf("Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): ");
+        scanf("%d", &tipoCliente);
+        printf("Ingrese tipo de tiquete (1=Tiquete Galeria, 2=Tiquete Palco): ");
+        scanf("%d", &tipoTiquete);
+        printf("Ingrese cantidad de tiquetes: ");
+        scanf("%d", &cantidadTiquetes);
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
