@@ -29,6 +29,10 @@ int main(int argc, char** argv) {
 			numero /= 10;          // eliminar el ultimo digito del numero
 		}
 		
+		// mostrar los resultados
+		printf("Numero ingresado: %d\n", numeroOriginal);
+		printf("Numero inverso: %d\n", inverso);
+		
 		//preguntar si desea continuar
 		printf("Desea ingresar otro numero? (s/n): ");
 		scanf("%c", &continuar);
