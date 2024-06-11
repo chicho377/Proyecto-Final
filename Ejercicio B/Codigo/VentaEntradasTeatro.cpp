@@ -18,9 +18,9 @@ int main(int argc, char** argv) {
         printf("Ingrese cedula: ");
         scanf("%d", &cedula);
         printf("Ingrese nombre y apellido: ");
-        getchar();  // para consumir el salto de línea pendiente
+        getchar();
         fgets(nombre, sizeof(nombre), stdin);
-        // Eliminar el salto de línea al final de la entrada
+        // eliminar el salto de línea al final de la entrada
         nombre[strcspn(nombre, "\n")] = 0;
 
         printf("Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): ");
@@ -29,6 +29,13 @@ int main(int argc, char** argv) {
         scanf("%d", &tipoTiquete);
         printf("Ingrese cantidad de tiquetes: ");
         scanf("%d", &cantidadTiquetes);
+        
+        // calcular monto unitario
+        if (tipoTiquete == 1) {
+            montoUnitario = 6000;
+        } else if (tipoTiquete == 2) {
+            montoUnitario = 12000;
+        }
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
