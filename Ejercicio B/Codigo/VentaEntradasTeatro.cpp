@@ -8,9 +8,9 @@ int main(int argc, char** argv) {
 	int numeroFactura = 0;
     int cantGaleria = 0, cantPalco = 0, cantTotal = 0;
     int cedula, tipoCliente, tipoTiquete, cantidadTiquetes;
-    double montoUnitario, montoVenta, descuento, subtotal, impuesto, totalPagar;
+    double montoUnitario, montoVenta, descuento, subTotal, impuesto, totalPagar;
     double acumGaleria = 0.0, acumPalco = 0.0, acumTotal = 0.0;
-    char nombre[100];
+    char nombre[100];\
     char continuar;
     
     do{
@@ -32,9 +32,9 @@ int main(int argc, char** argv) {
         
         // calcular monto unitario
         if (tipoTiquete == 1) {
-            montoUnitario = 6000;
+            montoUnitario = 6000;\
         } else if (tipoTiquete == 2) {
-            montoUnitario = 12000;
+            montoUnitario = 12000;\
         }
         
         // calcular monto de venta
@@ -48,13 +48,27 @@ int main(int argc, char** argv) {
         }
         
         // calcular subtotal
-        subtotal = montoVenta - descuento;
+        subTotal = montoVenta - descuento;
 
         // calcular impuesto
-        impuesto = subtotal * 0.13;
+        impuesto = subTotal * 0.13;
 
         // calcular total a pagar
-        totalPagar = subtotal + impuesto;
+        totalPagar = subTotal + impuesto;
+        
+        // imprimir factura
+        printf("\nFactura #%d\n", numeroFactura);
+        printf("Cedula: %d\n", cedula);
+        printf("Nombre: %s\n", nombre);
+        printf("Tipo de cliente: %d\n", tipoCliente);
+        printf("Tipo de tiquete: %d\n", tipoTiquete);
+        printf("Cantidad de tiquetes: %d\n", cantidadTiquetes);
+        printf("Monto unitario por tiquete: %.2f\n", montoUnitario);
+        printf("Monto de venta: %.2f\n", montoVenta);
+        printf("Descuento: %.2f\n", descuento);
+        printf("Subtotal de venta: %.2f\n", subTotal);
+        printf("Impuesto de venta: %.2f\n", impuesto);
+        printf("Total a pagar: %.2f\n", totalPagar);
     	
     	printf("Desea registrar otra venta? (s/n): ");
     	scanf(" %c", &continuar);
