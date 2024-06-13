@@ -1,3 +1,5 @@
+Programa VentaEntradasTeatro
+
 INICIO
 
     // Inicializar variables
