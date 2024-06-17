@@ -1,128 +1,131 @@
-Proceso VentaEntradasTeatro
-	
+INICIO
+
     // Inicializar variables
-    numeroFactura <- 0
-    cantGaleria <- 0
-    cantPalco <- 0
-    cantTotal <- 0
-    cedula <- 0
-    tipoCliente <- 0
-    tipoTiquete <- 0
-    cantidadTiquetes <- 0
-    montoUnitario <- 0.0
-    montoVenta <- 0.0
-    descuento <- 0.0
-    subTotal <- 0.0
-    impuesto <- 0.0
-    totalPagar <- 0.0
-    acumGaleria <- 0.0
-    acumPalco <- 0.0
-    acumTotal <- 0.0
-    nombre <- ""
-    continuar <- 's'
-	
-    Mientras continuar = 's' O continuar = 'S' Hacer
+    numeroFactura ← 0
+    cantGaleria ← 0
+    cantPalco ← 0
+    cantTotal ← 0
+    cedula ← 0
+    tipoCliente ← 0
+    tipoTiquete ← 0
+    cantidadTiquetes ← 0
+    montoUnitario ← 0.0
+    montoVenta ← 0.0
+    descuento ← 0.0
+    subTotal ← 0.0
+    impuesto ← 0.0
+    totalPagar ← 0.0
+    acumGaleria ← 0.0
+    acumPalco ← 0.0
+    acumTotal ← 0.0
+    nombre ← ""
+    continuar ← ''
+
+    MIENTRAS continuar = 's' O continuar = 'S' HACER
         // Incrementar el número de factura
-        numeroFactura <- numeroFactura + 1
-		
+        numeroFactura ← numeroFactura + 1
+
         // Ingresar datos del cliente
-        Escribir "Ingrese cedula: "
-        Leer cedula
-        Escribir "Ingrese nombre y apellido: "
-        Leer nombre
-		
-        Escribir "Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): "
-        Leer tipoCliente
-		
+        IMPRIMIR "Ingrese cedula: "
+        LEER cedula
+        IMPRIMIR "Ingrese nombre y apellido: "
+        LEER nombre
+
+        // Eliminar el salto de línea al final de la entrada
+        nombre ← eliminar_salto_de_linea(nombre)
+
+        IMPRIMIR "Ingrese tipo de cliente (1=Nino o adulto mayor, 2=Adulto): "
+        LEER tipoCliente
+
         // Validar que el tipo de cliente sea correcto
-        Mientras tipoCliente > 2 O tipoCliente < 1 Hacer
-            Escribir "Tipo de cliente incorrecto. Por favor ingrese 1-Nino o adulto mayor, 2-Adulto: "
-            Leer tipoCliente
-        FinMientras
-		
-        Escribir "Ingrese tipo de tiquete (1=Tiquete Galeria, 2=Tiquete Palco): "
-        Leer tipoTiquete
-		
+        MIENTRAS tipoCliente > 2 O tipoCliente < 1 HACER
+            IMPRIMIR "Tipo de cliente incorrecto. Por favor ingrese 1-Nino o adulto mayor, 2-Adulto: "
+            LEER tipoCliente
+        FIN MIENTRAS
+
+        IMPRIMIR "Ingrese tipo de tiquete (1=Tiquete Galeria, 2=Tiquete Palco): "
+        LEER tipoTiquete
+
         // Validar que el tipo de tiquete sea correcto
-        Mientras tipoTiquete > 2 O tipoTiquete < 1 Hacer
-            Escribir "Tipo de tiquete incorrecto. Por favor ingrese 1-Galeria, 2-Palco: "
-            Leer tipoTiquete
-        FinMientras
-		
-        Escribir "Ingrese cantidad de tiquetes: "
-        Leer cantidadTiquetes
-		
+        MIENTRAS tipoTiquete > 2 O tipoTiquete < 1 HACER
+            IMPRIMIR "Tipo de tiquete incorrecto. Por favor ingrese 1-Galeria, 2-Palco: "
+            LEER tipoTiquete
+        FIN MIENTRAS
+
+        IMPRIMIR "Ingrese cantidad de tiquetes: "
+        LEER cantidadTiquetes
+
         // Calcular monto unitario
-        Si tipoTiquete = 1 Entonces
-            montoUnitario <- 6000
-        Sino
-            montoUnitario <- 12000
-        FinSi
-		
+        SI tipoTiquete = 1 ENTONCES
+            montoUnitario ← 6000
+        SINO SI tipoTiquete = 2 ENTONCES
+            montoUnitario ← 12000
+        FIN SI
+
         // Calcular monto de venta
-        montoVenta <- cantidadTiquetes * montoUnitario
-		
+        montoVenta ← cantidadTiquetes * montoUnitario
+
         // Calcular descuento
-        Si tipoCliente = 1 Entonces
-            descuento <- montoVenta * 0.30
-        Sino
-            descuento <- 0
-        FinSi
-		
+        SI tipoCliente = 1 ENTONCES
+            descuento ← montoVenta * 0.30
+        SINO
+            descuento ← 0
+        FIN SI
+
         // Calcular subtotal
-        subTotal <- montoVenta - descuento
-		
+        subTotal ← montoVenta - descuento
+
         // Calcular impuesto
-        impuesto <- subTotal * 0.13
-		
+        impuesto ← subTotal * 0.13
+
         // Calcular total a pagar
-        totalPagar <- subTotal + impuesto
-		
+        totalPagar ← subTotal + impuesto
+
         // Imprimir factura
-        Escribir "============================="
-        Escribir "         FACTURA #" , numeroFactura
-        Escribir "============================="
-        Escribir "Cedula: " , cedula
-        Escribir "Nombre: " , nombre
-        Escribir "Tipo de cliente: " , tipoCliente
-        Escribir "Tipo de tiquete: " , tipoTiquete
-        Escribir "Cantidad de tiquetes: " , cantidadTiquetes
-        Escribir "Monto unitario por tiquete: " , montoUnitario
-        Escribir "Monto de venta: " , montoVenta
-        Escribir "Descuento: " , descuento
-        Escribir "Subtotal de venta: " , subTotal
-        Escribir "Impuesto de venta: " , impuesto
-        Escribir "Total a pagar: " , totalPagar
-        Escribir "============================="
-		
+        IMPRIMIR "============================="
+        IMPRIMIR "         FACTURA #" + numeroFactura
+        IMPRIMIR "============================="
+        IMPRIMIR "Cedula: " + cedula
+        IMPRIMIR "Nombre: " + nombre
+        IMPRIMIR "Tipo de cliente: " + tipoCliente
+        IMPRIMIR "Tipo de tiquete: " + tipoTiquete
+        IMPRIMIR "Cantidad de tiquetes: " + cantidadTiquetes
+        IMPRIMIR "Monto unitario por tiquete: " + montoUnitario
+        IMPRIMIR "Monto de venta: " + montoVenta
+        IMPRIMIR "Descuento: " + descuento
+        IMPRIMIR "Subtotal de venta: " + subTotal
+        IMPRIMIR "Impuesto de venta: " + impuesto
+        IMPRIMIR "Total a pagar: " + totalPagar
+        IMPRIMIR "============================="
+
         // Actualizar estadísticas
-        Si tipoTiquete = 1 Entonces
-            cantGaleria <- cantGaleria + cantidadTiquetes
-            acumGaleria <- acumGaleria + totalPagar
-        Sino
-            cantPalco <- cantPalco + cantidadTiquetes
-            acumPalco <- acumPalco + totalPagar
-        FinSi
-        cantTotal <- cantTotal + cantidadTiquetes
-        acumTotal <- acumTotal + totalPagar
-		
-        Escribir "Desea registrar otra venta? (s/n): "
-        Leer continuar
-		
-    FinMientras
-	
+        SI tipoTiquete = 1 ENTONCES
+            cantGaleria ← cantGaleria + cantidadTiquetes
+            acumGaleria ← acumGaleria + totalPagar
+        SINO SI tipoTiquete = 2 ENTONCES
+            cantPalco ← cantPalco + cantidadTiquetes
+            acumPalco ← acumPalco + totalPagar
+        FIN SI
+        cantTotal ← cantTotal + cantidadTiquetes
+        acumTotal ← acumTotal + totalPagar
+
+        IMPRIMIR "Desea registrar otra venta? (s/n): "
+        LEER continuar
+
+    FIN MIENTRAS
+
     // Mostrar estadísticas finales
-    Escribir "Estadisticas finales:"
-    Escribir "============================="
-    Escribir "Cantidad de entradas Tiquetes Galeria: " , cantGaleria
-    Escribir "Acumulado Dinero por Tiquetes Galeria: " , acumGaleria
-    Escribir "Cantidad de entradas Tiquetes Palco: " , cantPalco
-    Escribir "Acumulado Dinero por Tiquetes Palco: " , acumPalco
-    Escribir "Cantidad General de Entradas: " , cantTotal
-    Escribir "Acumulado General Dinero por Entradas: " , acumTotal
-    Si numeroFactura > 0 Entonces
-        Escribir "Promedio General por Ventas: " , (acumTotal / numeroFactura)
-    FinSi
-    Escribir "============================="
-	
-FinProceso
+    IMPRIMIR "Estadisticas finales:"
+    IMPRIMIR "============================="
+    IMPRIMIR "Cantidad de entradas Tiquetes Galeria: " + cantGaleria
+    IMPRIMIR "Acumulado Dinero por Tiquetes Galeria: " + acumGaleria
+    IMPRIMIR "Cantidad de entradas Tiquetes Palco: " + cantPalco
+    IMPRIMIR "Acumulado Dinero por Tiquetes Palco: " + acumPalco
+    IMPRIMIR "Cantidad General de Entradas: " + cantTotal
+    IMPRIMIR "Acumulado General Dinero por Entradas: " + acumTotal
+    SI numeroFactura > 0 ENTONCES
+        IMPRIMIR "Promedio General por Ventas: " + (acumTotal / numeroFactura)
+    FIN SI
+    IMPRIMIR "============================="
+
+FIN

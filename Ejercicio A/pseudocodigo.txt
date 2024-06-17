@@ -1,0 +1,52 @@
+INICIO 
+
+  leer(n) // leer un número entero
+
+  MIENTRAS (n != 0) ciclo hasta que el usuario no ingrese 0
+
+    SI (esPrimo(n))  verificar si el número es primo
+      imprimir("El número " + n + " es un Numero Primo")
+      sumatoriaPrimos = sumatoriaPrimos  + 
+      sumatoriaPrimos = sumatoriaPrimos + n
+      cantidadPrimos =
+
+  
+
+  
+
+  MIENTRAS (n != 
+
+  MIENTRAS (
+
+    SI (esPrimo(n)) THEN 
+
+    SI (esPrimo(n)) THEN
+
+    SI ( cantidadPrimos + 1
+    ELSE
+      imprimir("El número " + n + " No es un Numero Primo")
+      sumatoriaNoPrimos = sumatoriaNoPrimos + 
+      sumatoriaNoPrimos = sumatoriaNoPrimos + n
+      cantidadNoPrimosn
+      cantidadNoPrimos = cantidadNoPrimos + 1
+
+    leer(n) 
+
+     leer otro número
+
+  FIN MIENTRAS
+
+  
+
+mostrar estadísticas
+
+  imprimir("Número Mayor Ingresado " + mayorIngresado + " en la posición " + posicionMayor)
+  imprimir("Cantidad Números Primos: " + cantidadPrimos)
+  imprimir("Sumatoria de los Números Primos: " + sumatoriaPrimos)
+  imprimir("Promedio de los Números Primos: " + (sumatoriaPrimos / cantidadPrimos))
+  imprimir("Cantidad Números No Primos: " + cantidadNoPrimos)
+  imprimir(
+  imprimir"Sumatoria Números No Primos: " + sumatoriaNoPrimos)
+  imprimir("Promedio de los Números No Primos: " + (sumatoriaNoPrimos / cantidadNoPrimos))
+
+  FIN
