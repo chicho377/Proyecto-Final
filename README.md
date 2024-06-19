@@ -112,4 +112,4 @@ El inverso de 58967 es 76985.
 
 ## Autor
 Creado por [Fabricio Mora Gómez](https://github.com/chicho377).
-Creado por [Yojannie Retana Quesada].
+Creado por [Yojannie Retana Quesada]().
